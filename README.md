@@ -1,4 +1,4 @@
-# magua-movie-web
+# vue-magua-movie
 
 ## Project setup
 ```
