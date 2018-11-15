@@ -19,6 +19,19 @@ export default new Router({
           component: () =>
             import(/* webpackChunkName: "SplashWelcome" */ '@/pages/splash/welcome')
         },
+        {
+          path: '/detail',
+          name: 'SplashDetail',
+          component: () =>
+            import(/* webpackChunkName: "SplashDetail" */ '@/pages/splash/detail')
+        },
+        /* 会员注册 */
+        {
+          path: '/regist/member',
+          name: 'RegistMember',
+          component: () =>
+            import(/* webpackChunkName: "RegistMember" */ '@/pages/splash/regist/member')
+        },
         /* 会员登陆 */
         {
           path: '/login/member',

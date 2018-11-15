@@ -1,4 +1,4 @@
 <template lang="pug">
-  #app
-    router-view
+  .page-wrap
+    h2 会员注册
 </template>
