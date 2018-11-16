@@ -24,8 +24,8 @@
           // 未登录可见
           b-nav-item-dropdown(right)
             template(slot='button-content')
-              span 用户
-            b-dropdown-item(to='/login/member') 账号登陆
-            b-dropdown-item(to='/regist/member') 注册账号
+              span 会员
+            b-dropdown-item(to='/login/member') 会员登陆
+            b-dropdown-item(to='/regist/member') 会员注册
     router-view
 </template>
