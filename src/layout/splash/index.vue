@@ -19,7 +19,7 @@
           b-nav-item-dropdown(right)
             template(slot='button-content')
               span 我的会员
-            b-dropdown-item(to='/member/profile') 我的资料
+            b-dropdown-item(to='/member/profile') 我的主页
             b-dropdown-item(href='#') 退出登录
           // 未登录可见
           b-nav-item-dropdown(right)
