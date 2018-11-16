@@ -110,5 +110,8 @@ export default new Router({
       component: () =>
         import(/* webpackChunkName: "LoginAdmin" */ '@/pages/404')
     }
-  ]
+  ],
+  scrollBehavior() {
+    return { x: 0, y: 0 }
+  }
 })
