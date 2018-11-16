@@ -52,11 +52,13 @@
                     span.text-muted {{ options.rateLabel[index] }}
                   b-col
                     b-progress(:value='item/rate.count*100', :max='100', variant='success', :precision='2', show-value)
+        comment-list
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import StarRate from 'vue-cute-rate'
+import CommentList from './components/CommentList'
 
 export default {
   data() {
@@ -105,7 +107,8 @@ export default {
     }
   },
   components: {
-    StarRate
+    StarRate,
+    CommentList
   }
 }
 </script>
