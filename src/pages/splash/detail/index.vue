@@ -37,17 +37,38 @@
               span {{ data.info.alias }}
               br
               span.text-muted 播放链接: 
-                b-link(href='data.href') Bilibili
+                b-link(:href='data.href', target='_blank') Bilibili
           b-col(cols='auto')
-            span hello
+            .film-rate
+              span 麻瓜评分
+              br
+              strong(style='font-size: 2em') {{ rate.avg }} 
+              star-rate(:value='rate.avg', type='star1', :star-half='true', disabled)
+              br
+              span {{ rate.count }} 人评价
+              template(v-for='(item, index) in rate.rates')
+                b-row(align-v='center')
+                  b-col(cols='auto')
+                    span.text-muted {{ options.rateLabel[index] }}
+                  b-col
+                    b-progress(:value='item/rate.count*100', :max='100', variant='success', :precision='2', show-value)
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import StarRate from 'vue-cute-rate'
 
 export default {
   data() {
     return {
+      options: {
+        rateLabel: ['五星', '四星', '三星', '二星', '一星']
+      },
+      rate: {
+        avg: 3.6,
+        count: 126,
+        rates: [50, 21, 45, 9, 1]
+      },
       data: {
         id: '5',
         name: '荒岛余生',
@@ -82,6 +103,9 @@ export default {
     id() {
       return this.$route.query.id
     }
+  },
+  components: {
+    StarRate
   }
 }
 </script>
