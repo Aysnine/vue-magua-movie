@@ -6,13 +6,11 @@
           b-list-group
             b-list-group-item(:variant='active == 0 ? "success":""', @click='active = 0') 影片列表
             b-list-group-item(:variant='active == 1 ? "success":""', @click='active = 1') 新增影片
-            b-list-group-item(:variant='active == 2 ? "success":""', @click='active = 2') 查找影片
       b-col.pl-0
         b-card.main(no-body)
           b-tabs(card, nav-wrapper-class='d-none', v-model='active')
             b-tab(title='Tab 0') Tab Contents 0
             b-tab(title='Tab 1') Tab Contents 1
-            b-tab(title='Tab 2') Tab Contents 2
 </template>
 
 <script>
