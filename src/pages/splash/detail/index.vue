@@ -69,7 +69,7 @@ export default {
       rate: {
         avg: 3.6,
         count: 126,
-        rates: [50, 21, 45, 9, 1]
+        rates: [50, 45, 21, 9, 1]
       },
       data: {
         id: '5',
