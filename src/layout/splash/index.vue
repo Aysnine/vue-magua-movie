@@ -10,17 +10,11 @@
             b-button.my-2.my-sm-0(size='sm', variant='outline-success') Search
         b-navbar-nav.ml-auto
           // 管理可见
-          b-nav-item-dropdown(right)
-            template(slot='button-content')
-              span 后台管理
-            b-dropdown-item(to='/admin') 进入后台
-            b-dropdown-item 退出登录
+          b-navbar-nav(right)
+            b-nav-item(to='/admin') 进入后台
           // 会员可见
-          b-nav-item-dropdown(right)
-            template(slot='button-content')
-              span 我的会员
-            b-dropdown-item(to='/member/profile') 我的主页
-            b-dropdown-item 退出登录
+          b-navbar-nav(right)
+            b-nav-item(to='/member/profile') 我的主页
           // 未登录可见
           b-nav-item-dropdown(right)
             template(slot='button-content')
