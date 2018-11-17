@@ -2,7 +2,7 @@
   .page-wrap
     .hero-wrap(v-if='data')
       b-container.mt-4.mb-4
-        b-card.text-center(img-src='/image/member-hero.jpg', img-alt='Card image', img-top, pills, overlay)
+        b-card.text-center(img-src='@/assets/image/member-hero.jpg', img-alt='Card image', img-top, pills, overlay)
           .pt-3.pb-3(slot='footer')
             .footer
               .avatar
@@ -24,7 +24,7 @@ export default {
     return {
       data: {
         id: '5',
-        account: 'damugua',
+        account: 'damagua',
         nickname: '大麻瓜同学'
       }
     }

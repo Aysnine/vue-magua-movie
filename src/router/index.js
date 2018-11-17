@@ -68,16 +68,10 @@ export default new Router({
     {
       path: '/admin',
       name: 'LayoutAdmin',
-      redirect: '/admin/dash',
+      redirect: '/admin/film',
       component: () =>
         import(/* webpackChunkName: "LayoutAdmin" */ '@/layout/admin'),
       children: [
-        {
-          path: '/admin/dash',
-          name: 'AdminDash',
-          component: () =>
-            import(/* webpackChunkName: "AdminDash" */ '@/pages/admin/dash')
-        },
         {
           path: '/admin/film',
           name: 'AdminFilm',

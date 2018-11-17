@@ -1,4 +1,5 @@
 <template lang="pug">
   #app
-    router-view
+    fade-transition(:duration='200', mode='out-in')
+      router-view
 </template>
