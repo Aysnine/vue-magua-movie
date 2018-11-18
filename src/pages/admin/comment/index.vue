@@ -1,19 +1,20 @@
 <template lang="pug">
-  b-container.mt-3(fluid='')
+  b-container.mt-3(fluid)
     b-row
       b-col(cols='auto')
         .sidebar
           b-list-group
             b-list-group-item(:variant='active == 0 ? "success":""', @click='active = 0') 影评列表
-            b-list-group-item(:variant='active == 1 ? "success":""', @click='active = 1') 查询影评
       b-col.pl-0
         b-card.main(no-body)
           b-tabs(card, nav-wrapper-class='d-none', v-model='active')
-            b-tab(title='Tab 0') Tab Contents 0
-            b-tab(title='Tab 1') Tab Contents 1
+            b-tab
+              tabu-table
 </template>
 
 <script>
+import TabuTable from './components/TabuTable'
+
 export default {
   data() {
     return {
@@ -29,6 +30,9 @@ export default {
         ipsum commodo tempor sunt in proident.
       `
     }
+  },
+  components: {
+    TabuTable
   }
 }
 </script>
