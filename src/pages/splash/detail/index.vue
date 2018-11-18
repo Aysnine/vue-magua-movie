@@ -30,7 +30,7 @@
               span.text-muted 上映日期: 
               span {{ data.info.release }}
               br
-              span 片长: 
+              span.text-muted 片长: 
               span {{ data.info.duration }}
               br
               span.text-muted 又名: 
