@@ -1853,9 +1853,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000844, caniuse-lite@^1.0.30000864, caniuse-lite@^1.0.30000899:
-  version "1.0.30000907"
-  resolved "http://registry.npm.taobao.org/caniuse-lite/download/caniuse-lite-1.0.30000907.tgz#0b9899bde53fb1c30e214fb12402361e02ff5c42"
-  integrity sha1-C5iZveU/scMOIU+xJAI2HgL/XEI=
+  version "1.0.30000909"
+  resolved "http://registry.npm.taobao.org/caniuse-lite/download/caniuse-lite-1.0.30000909.tgz#697e8f447ca5f758e7c6cef39ec429ce18b908d3"
+  integrity sha1-aX6PRHyl91jnxs7znsQpzhi5CNM=
 
 case-sensitive-paths-webpack-plugin@^2.1.2:
   version "2.1.2"
@@ -6577,9 +6577,9 @@ postcss@^6.0.1, postcss@^6.0.20, postcss@^6.0.23:
     supports-color "^5.4.0"
 
 postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.5:
-  version "7.0.5"
-  resolved "http://registry.npm.taobao.org/postcss/download/postcss-7.0.5.tgz#70e6443e36a6d520b0fd4e7593fcca3635ee9f55"
-  integrity sha1-cOZEPjam1SCw/U51k/zKNjXun1U=
+  version "7.0.6"
+  resolved "http://registry.npm.taobao.org/postcss/download/postcss-7.0.6.tgz#6dcaa1e999cdd4a255dcd7d4d9547f4ca010cdc2"
+  integrity sha1-bcqh6ZnN1KJV3NfU2VR/TKAQzcI=
   dependencies:
     chalk "^2.4.1"
     source-map "^0.6.1"
@@ -8009,6 +8009,11 @@ table@^5.0.2:
     slice-ansi "1.0.0"
     string-width "^2.1.1"
 
+tabulator-tables@^4.1.2:
+  version "4.1.2"
+  resolved "http://registry.npm.taobao.org/tabulator-tables/download/tabulator-tables-4.1.2.tgz#de025808dfcfca6bbd69ea043111014d3ed3b5e6"
+  integrity sha1-3gJYCN/Pymu9aeoEMREBTT7TteY=
+
 tapable@^1.0.0, tapable@^1.1.0:
   version "1.1.0"
   resolved "http://registry.npm.taobao.org/tapable/download/tapable-1.1.0.tgz#0d076a172e3d9ba088fd2272b2668fb8d194b78c"
@@ -8907,9 +8912,9 @@ write@^0.2.1:
     mkdirp "^0.5.1"
 
 ws@^6.0.0:
-  version "6.1.0"
-  resolved "http://registry.npm.taobao.org/ws/download/ws-6.1.0.tgz#119a9dbf92c54e190ec18d10e871d55c95cf9373"
-  integrity sha1-EZqdv5LFThkOwY0Q6HHVXJXPk3M=
+  version "6.1.2"
+  resolved "http://registry.npm.taobao.org/ws/download/ws-6.1.2.tgz#3cc7462e98792f0ac679424148903ded3b9c3ad8"
+  integrity sha1-PMdGLph5LwrGeUJBSJA97TucOtg=
   dependencies:
     async-limiter "~1.0.0"
 
