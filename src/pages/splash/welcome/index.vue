@@ -14,19 +14,25 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
+  created() {
+    this.fetch()
+  },
   computed: {
-    ...mapGetters(['filmTop']),
+    ...mapGetters('splash', ['list']),
     groupedFilmTop() {
-      return this.filmTop.reduce(
+      return this.list.reduce(
         (x, item, index) => (
           index % 5 ? x[x.length - 1].push(item) : x.push([item]), x
         ),
         []
       )
     }
+  },
+  methods: {
+    ...mapActions('splash', ['fetch'])
   }
 }
 </script>

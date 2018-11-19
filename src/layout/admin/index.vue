@@ -10,9 +10,24 @@
         b-nav-item(to='/admin/comment') 影评管理
       b-collapse#nav_collapse(is-nav)
         b-navbar-nav.ml-auto
-          b-nav-item(href='#') 退出登陆
+          b-nav-item(@click='hancleClickLogout') 退出登陆
           b-nav-item(to='/') 返回首页
     .layout-main-wrap.has-top-nav
       slide-y-down-transition(:duration='200', mode='out-in')
         router-view
 </template>
+
+<script>
+export default {
+  methods: {
+    async hancleClickLogout() {
+      try {
+        await this.$store.dispatch('app/adminLogout')
+        this.$router.push('/')
+      } catch (err) {
+        // ...
+      }
+    }
+  }
+}
+</script>

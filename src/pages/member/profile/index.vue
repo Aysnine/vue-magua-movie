@@ -19,15 +19,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  data() {
-    return {
-      data: {
-        id: '5',
-        account: 'damagua',
-        nickname: '大麻瓜同学'
-      }
-    }
+  computed: {
+    ...mapGetters({
+      data: 'user'
+    })
   }
 }
 </script>

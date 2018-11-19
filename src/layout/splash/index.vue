@@ -10,18 +10,34 @@
             b-button.my-2.my-sm-0(size='sm', variant='outline-success') Search
         b-navbar-nav.ml-auto
           // 管理可见
-          b-navbar-nav(right)
+          b-navbar-nav(v-if='role==="ADMIN"', right)
             b-nav-item(to='/admin') 进入后台
           // 会员可见
-          b-navbar-nav(right)
+          b-navbar-nav(v-if='role==="MEMBER"', right)
             b-nav-item(to='/member/profile') 我的主页
+          b-navbar-nav(v-if='role==="MEMBER"', right)
           // 未登录可见
-          b-nav-item-dropdown(right)
-            template(slot='button-content')
-              span 会员
-            b-dropdown-item(to='/login/member') 会员登陆
-            b-dropdown-item(to='/regist/member') 会员注册
+          //- b-nav-item-dropdown(v-if='!user', right)
+          //-   template(slot='button-content')
+          //-     span 会员
+          //-   b-dropdown-item(to='/login/member') 会员登陆
+          //-   b-dropdown-item(to='/regist/member') 会员注册
+          b-navbar-nav(v-if='!user', right)
+            b-nav-form.mr-3
+              b-button(size='sm', variant='outline-secondary', to='/login/admin') 后台通道
+            b-nav-item(to='/regist/member') 注册会员
+            b-nav-item(to='/login/member') 会员登陆
     .layout-main-wrap.has-top-nav
       slide-y-down-transition(:duration='200', mode='out-in')
         router-view
 </template>
+
+<script>
+import { mapGetters } from 'vuex'
+
+export default {
+  computed: {
+    ...mapGetters(['user', 'role'])
+  }
+}
+</script>
