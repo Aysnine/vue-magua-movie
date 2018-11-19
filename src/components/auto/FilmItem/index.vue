@@ -1,5 +1,5 @@
 <template lang="pug">
-  b-card.mb-1(:img-src='data.cover', img-alt='Image', img-top='', tag='article', style='max-width: 20rem;', body-class='film-item-body')
+  b-card.mb-1(:img-src='"./cover/" + data.cover', img-alt='Image', img-top='', tag='article', style='max-width: 20rem;', body-class='film-item-body')
     router-link(:to='{ path: "/detail", query: { id: data.id }}')
       small {{ data.name }}
     br
