@@ -1,0 +1,9 @@
+[
+  {
+    "id": "0",
+    "account": "admin",
+    "nickname": "超级大麻瓜",
+    "password": "admin",
+    "role": "ADMIN"
+  }
+]

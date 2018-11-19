@@ -17,12 +17,13 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import Tabulator from 'tabulator-tables'
 import 'tabulator-tables/dist/css/bootstrap/tabulator_bootstrap4.min.css'
 
 export default {
   mounted() {
+    this.fetch()
     this.tabulator = new Tabulator(this.$refs.table, {
       data: this.tableData,
       columns: [
@@ -77,8 +78,8 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      tableData: 'filmTop'
+    ...mapGetters('admin/film', {
+      tableData: 'list'
     })
   },
   watch: {
@@ -90,6 +91,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions('admin/film', ['fetch']),
     handleDeselectAll() {
       this.tabulator.deselectRow()
     }

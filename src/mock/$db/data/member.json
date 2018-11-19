@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "account": "damagua1",
+    "nickname": "大麻瓜同学1号",
+    "password": "damagua1",
+    "role": "MEMBER"
+  },
+  {
+    "id": "2",
+    "account": "damagua2",
+    "nickname": "大麻瓜同学2号",
+    "password": "damagua2",
+    "role": "MEMBER"
+  },
+  {
+    "id": "3",
+    "account": "damagua3",
+    "nickname": "大麻瓜同学3号",
+    "password": "damagua3",
+    "role": "MEMBER"
+  }
+]
