@@ -4,10 +4,10 @@
       b-navbar-toggle(target='nav_collapse')
       b-navbar-brand(to='/') 麻瓜影评
       b-collapse#nav_collapse(is-nav)
-        b-navbar-nav
-          b-nav-form
-            b-form-input.mr-sm-2(size='sm', type='text', placeholder='输入关键字、电影名')
-            b-button.my-2.my-sm-0(size='sm', variant='outline-success') Search
+        //- b-navbar-nav
+        //-   b-nav-form
+        //-     b-form-input.mr-sm-2(size='sm', type='text', placeholder='输入关键字、电影名')
+        //-     b-button.my-2.my-sm-0(size='sm', variant='outline-success') Search
         b-navbar-nav.ml-auto
           // 管理可见
           b-navbar-nav(v-if='role==="ROOT_ADMIN"', right)
