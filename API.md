@@ -378,3 +378,75 @@ Body
     "msg": "<失败原因>"
 }
 ```
+
+### 【MEMBER】获取当前会员对单个影片的评论
+
+#### POST /comment/getMineComment
+
+Body
+
+- id：影片ID
+
+##### 成功
+
+```json
+{
+    "code": 0,
+    "data": {
+        "id": "xxx",
+        "content": "xxx",
+        "rate": 3
+    }
+}
+```
+
+##### 不存在
+
+```json
+{
+    "code": 0,
+    "msg": "还未评论该影片"
+}
+```
+
+##### 失败
+
+```json
+{
+    "code": 1,
+    "msg": "<失败原因>"
+}
+```
+
+### 【PUBLIC】获取单个电影下的所有评论
+
+#### POST /comment/fetchByFilm
+
+Body
+
+- id：影片 ID
+
+##### 成功
+
+```json
+{
+    "code": 0,
+    "data": [
+        {
+        "id": "xxx",
+        "content": "xxx",
+        "rate": 3
+    	} 
+    ]
+}
+```
+
+##### 失败
+
+```json
+{
+    "code": 1,
+    "msg": "<失败原因>"
+}
+```
+
