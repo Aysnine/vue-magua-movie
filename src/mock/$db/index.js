@@ -11,6 +11,7 @@ db.defaults({
   admin: require('./data/admin.json'),
   member: require('./data/member.json'),
   film: require('./data/film.json'),
+  comment: [],
   roles: [
     { id: 'ROOT_ADMIN', name: '管理员' },
     { id: 'ROOT_MEMBER', name: '会员' }
