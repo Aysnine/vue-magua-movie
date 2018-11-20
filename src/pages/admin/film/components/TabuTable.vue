@@ -11,8 +11,8 @@
         b-col
         fade-transition(:duration='200')
           b-col(v-if='selected.length', cols='auto')
-            b-btn.mr-1(text='Button', variant='danger') 删除选中 ({{ selected.length }})
-            b-btn(text='Button', variant='outline-secondary', @click='handleDeselectAll') 取消全选
+            b-btn.mr-1(text='Button', variant='danger', @click='handleDelete') 删除选中 ({{ selected.length }})
+            b-btn(text='Button', variant='outline-secondary', @click='handleDeselectAll') 取消
     .table.mb-0(ref='table')
 </template>
 
@@ -91,9 +91,16 @@ export default {
     }
   },
   methods: {
-    ...mapActions('admin/film', ['fetch']),
+    ...mapActions('admin/film', ['fetch', 'deleteFilm']),
     handleDeselectAll() {
       this.tabulator.deselectRow()
+    },
+    async handleDelete() {
+      try {
+        await this.deleteFilm(this.selected.map(i => i.id))
+      } catch (err) {
+        alert(err.msg || '删除失败')
+      }
     }
   }
 }

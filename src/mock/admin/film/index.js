@@ -17,9 +17,9 @@ export default [
     path: /\/film\/deleteFilm.*/,
     method: 'post',
     handle({ body, db }) {
-      let { ids } = body
+      let { list } = body
       db.get('film')
-        .remove(i => ids.indexOf(i.id) > -1)
+        .remove(i => list.indexOf(i.id) > -1)
         .write()
       return {
         code: 0,
