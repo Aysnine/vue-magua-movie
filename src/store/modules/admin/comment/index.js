@@ -1,4 +1,4 @@
-import { fetchComment } from '@/api/admin/comment'
+import { fetchComment, deleteComment } from '@/api/admin/comment'
 
 export default {
   namespaced: true,
@@ -21,10 +21,19 @@ export default {
         throw err
       }
     },
-    async fetchComment({ commit }) {
+    async fetchComment({ commit }, form) {
       try {
-        let rst = await fetchComment()
+        let rst = await fetchComment(form)
         commit('SET_LIST', rst.data)
+        return rst
+      } catch (err) {
+        throw err
+      }
+    },
+    async deleteComment({ dispatch }, form) {
+      try {
+        let rst = await deleteComment(form)
+        dispatch('fetch')
         return rst
       } catch (err) {
         throw err
