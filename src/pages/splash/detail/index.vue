@@ -6,7 +6,7 @@
           small.text-muted ({{ data.info.alias }})
         b-row.mt-4
           b-col(cols='auto')
-            img(width='160px', :src='data.cover')
+            img(width='160px', :src='"./cover/" + data.cover')
           b-col
             .film-desc
               span.text-muted 导演: 
@@ -77,7 +77,7 @@ export default {
         subtitle: '四年没上班的社畜',
         href: 'https://www.bilibili.com/bangumi/play/ss25865/',
         cover:
-          'https://i0.hdslb.com/bfs/bangumi/3211c19bb4c136ae6459b94a89f7f3c6ae30116c.jpg@320w_428h.jpg',
+          '3211c19bb4c136ae6459b94a89f7f3c6ae30116c.jpg@320w_428h.jpg',
         info: {
           director: '罗伯特·泽米吉斯',
           scriptwriter: '小威廉·保尔斯',
