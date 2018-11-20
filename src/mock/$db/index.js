@@ -1,6 +1,11 @@
 import low from 'lowdb'
 import LocalStorage from 'lowdb/adapters/LocalStorage'
-const db = low(new LocalStorage('mock-default-db'))
+const db = low(
+  new LocalStorage(
+    `mock-db-${process.env.VUE_APP_MOCK_DB_DOMAIN ||
+      'mock-default-db'}-${process.env.VUE_APP_MOCK_DB_VERSION || '0.0.1'}`
+  )
+)
 
 db.defaults({
   admin: require('./data/admin.json'),
