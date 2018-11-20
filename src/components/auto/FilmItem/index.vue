@@ -1,9 +1,9 @@
 <template lang="pug">
   b-card.mb-1(:img-src='"./cover/" + data.cover', img-alt='Image', img-top='', tag='article', style='max-width: 20rem;', body-class='film-item-body')
     router-link(:to='{ path: "/detail", query: { id: data.id }}')
-      small {{ data.name }}
+      small {{ data.title }}
     br
-    small.text-muted {{ data.short }}
+    small.text-muted {{ data.subtitle }}
 </template>
 
 <script>

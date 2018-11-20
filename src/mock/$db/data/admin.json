@@ -4,6 +4,6 @@
     "account": "admin",
     "nickname": "超级大麻瓜",
     "password": "admin",
-    "role": "ADMIN"
+    "role": "ROOT_ADMIN"
   }
 ]

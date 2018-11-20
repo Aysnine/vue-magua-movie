@@ -36,14 +36,14 @@ export default {
         },
         {
           title: '影片名',
-          field: 'name',
+          field: 'title',
           width: 200,
           responsive: 0,
           headerSort: false
         },
         {
           title: '副标题',
-          field: 'short',
+          field: 'subtitle',
           width: 200,
           headerSort: false
         },
@@ -57,8 +57,8 @@ export default {
       // paginationSize: 6,
       height: 'calc(100vh - 190px)',
       layout: 'fitColumns',
+      responsiveLayout: 'hide',
       selectable: true,
-      responsiveLayout: 'collapse',
       rowSelectionChanged: data => {
         this.selected = data
       }
@@ -69,11 +69,11 @@ export default {
       selected: [],
       options: {
         search: [
-          { value: 'name', text: '影片名' },
-          { value: 'short', text: '副标题' }
+          { value: 'title', text: '影片名' },
+          { value: 'subtitle', text: '副标题' }
         ]
       },
-      searchProp: 'name',
+      searchProp: 'title',
       tabulator: null
     }
   },

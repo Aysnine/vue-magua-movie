@@ -10,7 +10,7 @@
       template(v-for='group in groupedFilmTop')
         b-card-group.mb-4(deck, columns)
           template(v-for='item in group')
-            film-item(:data='item')
+            film-item(:data='item', :key='item.id')
 </template>
 
 <script>

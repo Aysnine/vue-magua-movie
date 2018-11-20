@@ -11,7 +11,10 @@ export default {
   namespaced: true,
   state: {
     user: null,
-    roles: [{ id: 'ADMIN', name: '管理员' }, { id: 'MEMBER', name: '会员' }]
+    roles: [
+      { id: 'ROOT_ADMIN', name: '管理员' },
+      { id: 'ROOT_MEMBER', name: '会员' }
+    ]
   },
   mutations: {
     SET_USER(state, val) {

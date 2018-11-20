@@ -64,8 +64,14 @@ export default [
     method: 'post',
     handle({ body, db, uid }) {
       let { account, nickname, password } = body
+      let user = db
+        .get('member')
+        .find({ account })
+        .cloneDeep()
+        .value()
+      if (user) return { code: 1, msg: `注册失败，账号${account}已被使用` }
       db.get('member')
-        .push({ id: uid(), account, nickname, password, role: 'MEMBER' })
+        .push({ id: uid(), account, nickname, password, role: 'ROOT_MEMBER' })
         .cloneDeep()
         .value()
       return {

@@ -135,9 +135,139 @@ Body
 }
 ```
 
-### 【PUBLIC】获取电影列表信息
+### 【ADMIN】添加电影
 
-#### GET /film/fetchList
+#### POST /file/addFilm
+
+Body
+
+- title：影片名
+- subtitle：副标题
+- href：播放链接
+- cover：封面地址
+
+#### Response
+
+##### 成功
+
+```json
+{
+    "code": 0,
+    "msg": "添加成功"
+}
+```
+
+##### 失败
+
+```json
+{
+    "code": 1,
+    "msg": "<失败原因>"
+}
+```
+
+### 【PUBLIC】查询影片
+
+#### POST /film/fetchFilm
+
+Body
+
+- searchFeild：搜索字段，`title`、`subtitle`
+- searchValue：搜索内容
+
+#### Response
+
+##### 成功
+
+```json
+{
+    "code": 0,
+    "msg": "获取成功",
+    "data": [
+        "..."
+    ]
+}
+```
+
+##### 失败
+
+```json
+{
+    "code": 1,
+    "msg": "<失败原因>"
+}
+```
+
+### 【ADMIN】删除影片
+
+#### POST /file/deleteFilm
+
+Body
+
+- list：要删除的影片id序列，如 ['1', '2']
+
+#### Response
+
+##### 成功
+
+``` json
+{
+    "code": 0,
+    "msg": "删除成功"
+}
+```
+
+##### 失败
+
+```json
+{
+    "code": 1,
+    "msg": "<失败原因>"
+}
+```
+
+### 【ADMIN】查询会员
+
+#### POST /member/fetchMember
+
+Body
+
+- searchFeild：搜索字段，`account`、`nickname`
+- searchValue：搜索内容
+
+#### Response
+
+##### 成功
+
+```json
+{
+    "code": 0,
+    "msg": "获取成功",
+    "data": [
+        "..."
+    ]
+}
+```
+
+##### 失败
+
+```json
+{
+    "code": 1,
+    "msg": "<失败原因>"
+}
+```
+
+### 【PUBLIC】查询影评
+
+#### POST /comment/fetchComment
+
+Body
+
+- searchFeild：查询字段，`content`
+- searchValue：查询内容，
+- mine：是否只查自己的
+- film：电影id
 
 #### Response
 
@@ -185,6 +315,25 @@ Body
         "content": "xxx",
         "rate": 3
     }
+}
+```
+
+### 【ADMIN】删除影评
+
+#### POST /comment/deleteComment
+
+Body
+
+- list：要删除的影评id序列，如 ['1', '2']
+
+#### Response
+
+##### 成功
+
+``` json
+{
+    "code": 0,
+    "msg": "删除成功"
 }
 ```
 

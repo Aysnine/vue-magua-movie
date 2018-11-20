@@ -2,15 +2,15 @@
   .wrap
     b-row
       b-col(cols='auto')
-        b-card(v-if='form.cover.trim().length', style='width: 14rem', no-body, header='封面预览', :img-src='form.cover', img-bottom)
+        b-card(v-if='form.cover.trim().length', style='width: 14rem', no-body, header='封面预览', :img-src='"./cover/"+ form.cover', img-bottom)
         b-card(v-else, style='width: 14rem', header='封面预览', img-bottom)
           span.text-muted 请先输入封面地址
       b-col
         b-form.ml-5(@submit='onSubmit')
           b-form-group(label='影片名:', horizontal, label-cols='2')
-            b-form-input(v-model='form.name', required, maxlength='512', placeholder='请输入影片名')
+            b-form-input(v-model='form.title', required, maxlength='512', placeholder='请输入影片名')
           b-form-group(label='副标题:', horizontal, label-cols='2')
-            b-form-input(v-model='form.short', required, maxlength='512', placeholder='请输入副标题')
+            b-form-input(v-model='form.subtitle', required, maxlength='512', placeholder='请输入副标题')
           b-form-group(label='观看地址:', horizontal, label-cols='2')
             b-form-input(v-model='form.href', required, maxlength='1024', placeholder='http 链接地址')
           b-form-group(label='封面地址:', horizontal, label-cols='2')
@@ -21,12 +21,25 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   data() {
+    if (this.$env__is_preview) {
+      let t = +new Date()
+      return {
+        form: {
+          title: '麻瓜大电影' + t,
+          subtitle: '即将上映',
+          href: 'https://www.bilibili.com/bangumi/play/ep253908',
+          cover: '7d9b4804226444f90913a9113a0f56f53056500d.jpg@320w_428h.jpg'
+        }
+      }
+    }
     return {
       form: {
-        name: '',
-        short: '',
+        title: '',
+        subtitle: '',
         href: '',
         cover: ''
       }
@@ -34,16 +47,31 @@ export default {
   },
   computed: {
     validated() {
-      let { name, short, href, cover } = this.form
-      return [name, short, href, cover].every(
+      let { title, subtitle, href, cover } = this.form
+      return [title, subtitle, href, cover].every(
         i => i && i.length && i.trim().length
       )
     }
   },
   methods: {
-    onSubmit(evt) {
+    ...mapActions('admin/film', ['addFilm']),
+    resetForm() {
+      this.form = {
+        title: '',
+        subtitle: '',
+        href: '',
+        cover: ''
+      }
+    },
+    async onSubmit(evt) {
       evt.preventDefault()
-      alert(JSON.stringify(this.form))
+      try {
+        let rst = await this.addFilm(this.form)
+        alert(rst.msg || '添加成功')
+        this.resetForm()
+      } catch (err) {
+        alert(err.msg || '添加失败')
+      }
     }
   }
 }

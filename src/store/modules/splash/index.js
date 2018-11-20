@@ -1,4 +1,4 @@
-import { fetchList } from '@/api/splash'
+import { fetchFilm } from '@/api/admin/film'
 
 export default {
   namespaced: true,
@@ -16,14 +16,14 @@ export default {
   actions: {
     async fetch({ dispatch }) {
       try {
-        await dispatch('fetchList')
+        await dispatch('fetchFilm')
       } catch (err) {
         throw err
       }
     },
-    async fetchList({ commit }) {
+    async fetchFilm({ commit }) {
       try {
-        let rst = await fetchList()
+        let rst = await fetchFilm()
         commit('SET_LIST', rst.data)
         return rst
       } catch (err) {
