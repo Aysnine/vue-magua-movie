@@ -10,7 +10,7 @@
           b-form-group(label='影片名:', horizontal, label-cols='2')
             b-form-input(v-model='form.name', required, maxlength='512', placeholder='请输入影片名')
           b-form-group(label='副标题:', horizontal, label-cols='2')
-            b-form-input(v-model='form.short', required, maxlength='512', placeholder='请输入副标题')
+            b-form-input(v-model='form.subtitle', required, maxlength='512', placeholder='请输入副标题')
           b-form-group(label='观看地址:', horizontal, label-cols='2')
             b-form-input(v-model='form.href', required, maxlength='1024', placeholder='http 链接地址')
           b-form-group(label='封面地址:', horizontal, label-cols='2')
@@ -23,10 +23,22 @@
 <script>
 export default {
   data() {
+    if (this.$env__is_preview) {
+      let t = +new Date()
+      return {
+        form: {
+          name: '麻瓜大电影' + t,
+          subtitle: '即将上映',
+          href: 'https://www.bilibili.com/bangumi/play/ep253908',
+          cover:
+            './cover/7d9b4804226444f90913a9113a0f56f53056500d.jpg@320w_428h.jpg'
+        }
+      }
+    }
     return {
       form: {
         name: '',
-        short: '',
+        subtitle: '',
         href: '',
         cover: ''
       }
@@ -34,8 +46,8 @@ export default {
   },
   computed: {
     validated() {
-      let { name, short, href, cover } = this.form
-      return [name, short, href, cover].every(
+      let { name, subtitle, href, cover } = this.form
+      return [name, subtitle, href, cover].every(
         i => i && i.length && i.trim().length
       )
     }

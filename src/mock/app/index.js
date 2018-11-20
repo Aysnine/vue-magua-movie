@@ -65,7 +65,7 @@ export default [
     handle({ body, db, uid }) {
       let { account, nickname, password } = body
       db.get('member')
-        .push({ id: uid(), account, nickname, password, role: 'MEMBER' })
+        .push({ id: uid(), account, nickname, password, role: 'ROOT_MEMBER' })
         .cloneDeep()
         .value()
       return {

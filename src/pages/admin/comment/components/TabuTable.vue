@@ -43,7 +43,7 @@ export default {
         },
         {
           title: '副标题',
-          field: 'short',
+          field: 'subtitle',
           width: 200,
           headerSort: false
         },
@@ -70,7 +70,7 @@ export default {
       options: {
         search: [
           { value: 'name', text: '影片名' },
-          { value: 'short', text: '副标题' }
+          { value: 'subtitle', text: '副标题' }
         ]
       },
       searchProp: 'name',

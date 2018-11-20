@@ -74,7 +74,7 @@ export default {
       data: {
         id: '5',
         name: '荒岛余生',
-        short: '四年没上班的社畜',
+        subtitle: '四年没上班的社畜',
         href: 'https://www.bilibili.com/bangumi/play/ss25865/',
         cover:
           'https://i0.hdslb.com/bfs/bangumi/3211c19bb4c136ae6459b94a89f7f3c6ae30116c.jpg@320w_428h.jpg',

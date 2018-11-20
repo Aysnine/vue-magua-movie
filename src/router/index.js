@@ -53,7 +53,7 @@ export default new Router({
       path: '/member',
       name: 'LayoutMember',
       redirect: '/member/profile',
-      meta: { role: 'MEMBER' },
+      meta: { role: 'ROOT_MEMBER' },
       component: () =>
         import(/* webpackChunkName: "LayoutMemberr" */ '@/layout/member'),
       children: [
@@ -70,7 +70,7 @@ export default new Router({
       path: '/admin',
       name: 'LayoutAdmin',
       redirect: '/admin/film',
-      meta: { role: 'ADMIN' },
+      meta: { role: 'ROOT_ADMIN' },
       component: () =>
         import(/* webpackChunkName: "LayoutAdmin" */ '@/layout/admin'),
       children: [

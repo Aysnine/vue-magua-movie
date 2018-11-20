@@ -3,7 +3,7 @@
     router-link(:to='{ path: "/detail", query: { id: data.id }}')
       small {{ data.name }}
     br
-    small.text-muted {{ data.short }}
+    small.text-muted {{ data.subtitle }}
 </template>
 
 <script>
