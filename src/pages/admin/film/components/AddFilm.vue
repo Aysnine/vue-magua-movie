@@ -8,7 +8,7 @@
       b-col
         b-form.ml-5(@submit='onSubmit')
           b-form-group(label='影片名:', horizontal, label-cols='2')
-            b-form-input(v-model='form.name', required, maxlength='512', placeholder='请输入影片名')
+            b-form-input(v-model='form.title', required, maxlength='512', placeholder='请输入影片名')
           b-form-group(label='副标题:', horizontal, label-cols='2')
             b-form-input(v-model='form.subtitle', required, maxlength='512', placeholder='请输入副标题')
           b-form-group(label='观看地址:', horizontal, label-cols='2')
@@ -27,7 +27,7 @@ export default {
       let t = +new Date()
       return {
         form: {
-          name: '麻瓜大电影' + t,
+          title: '麻瓜大电影' + t,
           subtitle: '即将上映',
           href: 'https://www.bilibili.com/bangumi/play/ep253908',
           cover:
@@ -37,7 +37,7 @@ export default {
     }
     return {
       form: {
-        name: '',
+        title: '',
         subtitle: '',
         href: '',
         cover: ''
@@ -46,8 +46,8 @@ export default {
   },
   computed: {
     validated() {
-      let { name, subtitle, href, cover } = this.form
-      return [name, subtitle, href, cover].every(
+      let { title, subtitle, href, cover } = this.form
+      return [title, subtitle, href, cover].every(
         i => i && i.length && i.trim().length
       )
     }
@@ -55,7 +55,6 @@ export default {
   methods: {
     onSubmit(evt) {
       evt.preventDefault()
-      alert(JSON.stringify(this.form))
     }
   }
 }

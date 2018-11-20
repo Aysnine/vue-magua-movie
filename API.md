@@ -203,7 +203,7 @@ Body
 
 Body
 
-- name：影片名
+- title：影片名
 - subtitle：副标题
 - href：播放链接
 - cover：封面地址
@@ -234,7 +234,7 @@ Body
 
 Body
 
-- searchFeild：搜索字段，`name`、`subtitle`
+- searchFeild：搜索字段，`title`、`subtitle`
 - searchValue：搜索内容
 
 #### Response

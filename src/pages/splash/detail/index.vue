@@ -2,7 +2,7 @@
   .page-wrap
     .hero-wrap(v-if='data')
       b-container.mt-4.mb-4
-        h3 {{ data.name }} 
+        h3 {{ data.title }} 
           small.text-muted ({{ data.info.alias }})
         b-row.mt-4
           b-col(cols='auto')
@@ -73,7 +73,7 @@ export default {
       },
       data: {
         id: '5',
-        name: '荒岛余生',
+        title: '荒岛余生',
         subtitle: '四年没上班的社畜',
         href: 'https://www.bilibili.com/bangumi/play/ss25865/',
         cover: '3211c19bb4c136ae6459b94a89f7f3c6ae30116c.jpg@320w_428h.jpg',

@@ -36,7 +36,7 @@ export default {
         },
         {
           title: '影片名',
-          field: 'name',
+          field: 'title',
           width: 200,
           responsive: 0,
           headerSort: false
@@ -69,11 +69,11 @@ export default {
       selected: [],
       options: {
         search: [
-          { value: 'name', text: '影片名' },
+          { value: 'title', text: '影片名' },
           { value: 'subtitle', text: '副标题' }
         ]
       },
-      searchProp: 'name',
+      searchProp: 'title',
       tabulator: null
     }
   },
