@@ -2,7 +2,7 @@
   .wrap
     b-row
       b-col(cols='auto')
-        b-card(v-if='form.cover.trim().length', style='width: 14rem', no-body, header='封面预览', :img-src='form.cover', img-bottom)
+        b-card(v-if='form.cover.trim().length', style='width: 14rem', no-body, header='封面预览', :img-src='"./cover/"+ form.cover', img-bottom)
         b-card(v-else, style='width: 14rem', header='封面预览', img-bottom)
           span.text-muted 请先输入封面地址
       b-col
@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   data() {
     if (this.$env__is_preview) {
@@ -30,8 +32,7 @@ export default {
           title: '麻瓜大电影' + t,
           subtitle: '即将上映',
           href: 'https://www.bilibili.com/bangumi/play/ep253908',
-          cover:
-            './cover/7d9b4804226444f90913a9113a0f56f53056500d.jpg@320w_428h.jpg'
+          cover: '7d9b4804226444f90913a9113a0f56f53056500d.jpg@320w_428h.jpg'
         }
       }
     }
@@ -53,8 +54,24 @@ export default {
     }
   },
   methods: {
-    onSubmit(evt) {
+    ...mapActions('admin/film', ['addFilm']),
+    resetForm() {
+      this.form = {
+        title: '',
+        subtitle: '',
+        href: '',
+        cover: ''
+      }
+    },
+    async onSubmit(evt) {
       evt.preventDefault()
+      try {
+        let rst = await this.addFilm(this.form)
+        alert(rst.msg || '添加成功')
+        this.resetForm()
+      } catch (err) {
+        alert(err.msg || '添加失败')
+      }
     }
   }
 }

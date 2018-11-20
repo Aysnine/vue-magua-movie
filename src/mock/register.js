@@ -6,9 +6,6 @@ shortid.characters(
   '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_$'
 )
 
-import app from '@/mock/app'
-import splash from '@/mock/splash'
-
 MockSuit.extend(
   'ck',
   $cookie(
@@ -19,5 +16,8 @@ MockSuit.extend(
 MockSuit.extend('uid', shortid.generate)
 MockSuit.extend('db', db)
 
-MockSuit.load(app)
-MockSuit.load(splash)
+MockSuit.load(require('./app').default)
+MockSuit.load(require('./splash').default)
+MockSuit.load(require('./admin/film').default)
+MockSuit.load(require('./admin/member').default)
+MockSuit.load(require('./admin/comment').default)

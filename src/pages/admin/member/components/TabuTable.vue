@@ -57,8 +57,8 @@ export default {
       // paginationSize: 6,
       height: 'calc(100vh - 190px)',
       layout: 'fitColumns',
+      responsiveLayout: 'hide',
       selectable: true,
-      responsiveLayout: 'collapse',
       rowSelectionChanged: data => {
         this.selected = data
       }

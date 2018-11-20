@@ -1,5 +1,5 @@
 export default [
-  /* 拉取用户信息（会员/管理员） */
+  /* 获取电影名单 */
   {
     path: /\/film\/fetchList.*/,
     method: 'get',
@@ -7,6 +7,7 @@ export default [
       let data = db
         .get('film')
         .cloneDeep()
+        .reverse()
         .value()
       return {
         code: 0,
