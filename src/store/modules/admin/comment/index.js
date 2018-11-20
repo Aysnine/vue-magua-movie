@@ -1,4 +1,4 @@
-import { fetchList } from '@/api/admin/comment'
+import { fetchComment } from '@/api/admin/comment'
 
 export default {
   namespaced: true,
@@ -16,14 +16,14 @@ export default {
   actions: {
     async fetch({ dispatch }) {
       try {
-        await dispatch('fetchList')
+        await dispatch('fetchComment')
       } catch (err) {
         throw err
       }
     },
-    async fetchList({ commit }) {
+    async fetchComment({ commit }) {
       try {
-        let rst = await fetchList()
+        let rst = await fetchComment()
         commit('SET_LIST', rst.data)
         return rst
       } catch (err) {

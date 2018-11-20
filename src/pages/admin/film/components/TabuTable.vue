@@ -5,9 +5,8 @@
         b-col(cols='auto')
           fade-transition(:duration='200')
             b-input-group(v-if='!selected.length', prepend='数据搜索')
-              b-form-select(v-model='searchProp', :options='options.search')
-              b-form-input(placeholder='输入搜索内容')
-              b-btn(slot='append', text='Button', variant='success') 搜索
+              b-form-select(v-model='searchFeild', :options='options.search')
+              b-form-input(v-model='searchValue', placeholder='输入搜索内容')
         b-col
         fade-transition(:duration='200')
           b-col(v-if='selected.length', cols='auto')
@@ -73,14 +72,20 @@ export default {
           { value: 'subtitle', text: '副标题' }
         ]
       },
-      searchProp: 'title',
+      searchFeild: 'title',
+      searchValue: '',
       tabulator: null
     }
   },
   computed: {
     ...mapGetters('admin/film', {
       tableData: 'list'
-    })
+    }),
+    search() {
+      return this.searchValue.trim().length
+        ? { searchFeild: this.searchFeild, searchValue: this.searchValue }
+        : {}
+    }
   },
   watch: {
     tableData: {
@@ -88,10 +93,13 @@ export default {
         this.tabulator.replaceData(newData)
       },
       deep: true
+    },
+    search(val) {
+      this.fetchFilm(val)
     }
   },
   methods: {
-    ...mapActions('admin/film', ['fetch', 'deleteFilm']),
+    ...mapActions('admin/film', ['fetch', 'fetchFilm', 'deleteFilm']),
     handleDeselectAll() {
       this.tabulator.deselectRow()
     },

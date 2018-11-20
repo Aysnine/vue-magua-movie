@@ -135,68 +135,6 @@ Body
 }
 ```
 
-### 【PUBLIC】获取电影列表信息
-
-#### GET /film/fetchList
-
-#### Response
-
-##### 成功
-
-```json
-{
-    "code": 0,
-    "msg": "获取成功",
-    "data": [
-        "..."
-    ]
-}
-```
-
-##### 失败
-
-```json
-{
-    "code": 1,
-    "msg": "<失败原因>"
-}
-```
-
-### 【MEMBER】发表影评
-
-#### POST /comment/addComment
-
-Body
-
-- film_id：电影ID
-- content：评论内容
-- rate：打分
-
-#### Response
-
-##### 成功
-
-```json
-{
-    "code": 0,
-    "msg": "评论发表成功",
-    "data": {
-    	"id": "xxx",
-        "content": "xxx",
-        "rate": 3
-    }
-}
-```
-
-##### 失败
-
-```json
-{
-    "code": 1,
-    "msg": "<失败原因>"
-}
-```
-
 ### 【ADMIN】添加电影
 
 #### POST /file/addFilm
@@ -230,7 +168,7 @@ Body
 
 ### 【PUBLIC】查询影片
 
-#### POST /film/searchFilm
+#### POST /film/fetchFilm
 
 Body
 
@@ -290,11 +228,11 @@ Body
 
 ### 【ADMIN】查询会员
 
-#### POST /member/searchMember
+#### POST /member/fetchMember
 
 Body
 
-- searchFeild：搜索字段，`account`、`id`、`nickname`
+- searchFeild：搜索字段，`account`、`nickname`
 - searchValue：搜索内容
 
 #### Response
@@ -322,11 +260,14 @@ Body
 
 ### 【PUBLIC】查询影评
 
-#### POST /comment/searchComment
+#### POST /comment/fetchComment
 
 Body
 
-- content：查询内容
+- searchFeild：查询字段，`content`
+- searchValue：查询内容，
+- mine：是否只查自己的
+- film：电影id
 
 #### Response
 
@@ -348,6 +289,32 @@ Body
 {
     "code": 1,
     "msg": "<失败原因>"
+}
+```
+
+### 【MEMBER】发表影评
+
+#### POST /comment/addComment
+
+Body
+
+- film_id：电影ID
+- content：评论内容
+- rate：打分
+
+#### Response
+
+##### 成功
+
+```json
+{
+    "code": 0,
+    "msg": "评论发表成功",
+    "data": {
+    	"id": "xxx",
+        "content": "xxx",
+        "rate": 3
+    }
 }
 ```
 
@@ -378,75 +345,3 @@ Body
     "msg": "<失败原因>"
 }
 ```
-
-### 【MEMBER】获取当前会员对单个影片的评论
-
-#### POST /comment/getMineComment
-
-Body
-
-- id：影片ID
-
-##### 成功
-
-```json
-{
-    "code": 0,
-    "data": {
-        "id": "xxx",
-        "content": "xxx",
-        "rate": 3
-    }
-}
-```
-
-##### 不存在
-
-```json
-{
-    "code": 0,
-    "msg": "还未评论该影片"
-}
-```
-
-##### 失败
-
-```json
-{
-    "code": 1,
-    "msg": "<失败原因>"
-}
-```
-
-### 【PUBLIC】获取单个电影下的所有评论
-
-#### POST /comment/fetchByFilm
-
-Body
-
-- id：影片 ID
-
-##### 成功
-
-```json
-{
-    "code": 0,
-    "data": [
-        {
-        "id": "xxx",
-        "content": "xxx",
-        "rate": 3
-    	} 
-    ]
-}
-```
-
-##### 失败
-
-```json
-{
-    "code": 1,
-    "msg": "<失败原因>"
-}
-```
-
