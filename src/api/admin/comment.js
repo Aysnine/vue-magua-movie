@@ -21,6 +21,6 @@ export const deleteComment = ids => {
   return request({
     method: 'post',
     url: '/comment/deleteComment',
-    data: qs.stringify({ list: ids })
+    data: qs.stringify({ list: ids }, { arrayFormat: 'repeat' })
   })
 }

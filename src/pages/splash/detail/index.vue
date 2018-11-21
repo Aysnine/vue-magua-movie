@@ -51,7 +51,7 @@
                   b-col(cols='auto')
                     span.text-muted {{ options.rateLabel[index] }}
                   b-col
-                    b-progress(:value='item/rate.count*100', :max='100', variant='success', :precision='2', show-value)
+                    b-progress(:value='(item/rate.count*100) || 0', :max='100', variant='success', :precision='2', show-value)
         comment-list
 </template>
 
