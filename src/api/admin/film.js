@@ -9,6 +9,14 @@ export const fetchFilm = (form = {}) => {
   })
 }
 
+export const fetchRate = id => {
+  return request({
+    method: 'post',
+    url: '/film/fetchRate',
+    data: qs.stringify({ id })
+  })
+}
+
 export const addFilm = form => {
   return request({
     method: 'post',

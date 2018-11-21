@@ -52,12 +52,11 @@ export default {
           headerSort: false
         }
       ],
-      // pagination: 'local',
-      // paginationSize: 6,
       height: 'calc(100vh - 190px)',
       layout: 'fitColumns',
       responsiveLayout: 'hide',
       selectable: true,
+      placeholder: '无数据',
       rowSelectionChanged: data => {
         this.selected = data
       }

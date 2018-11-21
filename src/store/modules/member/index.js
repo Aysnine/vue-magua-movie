@@ -10,7 +10,7 @@ export default {
     // ...
   },
   actions: {
-    async fetch({ commit, dispatch }) {
+    async fetch(/* { commit, dispatch } */) {
       try {
         // let rst = await xxx()
         // return rst

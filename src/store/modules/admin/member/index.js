@@ -1,4 +1,4 @@
-import { fetchList } from '@/api/admin/member'
+import { fetchMember } from '@/api/admin/member'
 
 export default {
   namespaced: true,
@@ -16,14 +16,14 @@ export default {
   actions: {
     async fetch({ dispatch }) {
       try {
-        await dispatch('fetchList')
+        await dispatch('fetchMember')
       } catch (err) {
         throw err
       }
     },
-    async fetchList({ commit }) {
+    async fetchMember({ commit }, form) {
       try {
-        let rst = await fetchList()
+        let rst = await fetchMember(form)
         commit('SET_LIST', rst.data)
         return rst
       } catch (err) {

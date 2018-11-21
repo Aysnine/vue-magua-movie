@@ -1,4 +1,4 @@
-import { fetchComment, deleteComment } from '@/api/admin/comment'
+import { fetchFilm } from '@/api/admin/film'
 
 export default {
   namespaced: true,
@@ -16,24 +16,15 @@ export default {
   actions: {
     async fetch({ dispatch }) {
       try {
-        await dispatch('fetchComment')
+        await dispatch('fetchFilm')
       } catch (err) {
         throw err
       }
     },
-    async fetchComment({ commit }, form) {
+    async fetchFilm({ commit }) {
       try {
-        let rst = await fetchComment(form)
+        let rst = await fetchFilm()
         commit('SET_LIST', rst.data)
-        return rst
-      } catch (err) {
-        throw err
-      }
-    },
-    async deleteComment({ dispatch }, form) {
-      try {
-        let rst = await deleteComment(form)
-        dispatch('fetch')
         return rst
       } catch (err) {
         throw err

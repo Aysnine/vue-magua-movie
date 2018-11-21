@@ -174,6 +174,7 @@ Body
 
 - searchFeild：搜索字段，`title`、`subtitle`
 - searchValue：搜索内容
+- id
 
 #### Response
 
@@ -186,6 +187,37 @@ Body
     "data": [
         "..."
     ]
+}
+```
+
+##### 失败
+
+```json
+{
+    "code": 1,
+    "msg": "<失败原因>"
+}
+```
+
+### 【PUBLIC】查询影片评分统计
+
+#### POST /film/fetchRate
+
+Body
+- id：影片id
+
+#### Response
+
+##### 成功
+
+```json
+{
+    "code": 0,
+    "msg": "获取成功",
+    "data": ｛
+    	count: [12, 23,  34, 45, 9],
+    	rate: 4.5
+    ｝
 }
 ```
 
