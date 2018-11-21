@@ -51,5 +51,25 @@ export default [
         msg: '删除成功'
       }
     }
+  },
+  {
+    path: /\/film\/fetchRate.*/,
+    method: 'post',
+    handle({ body, db }) {
+      let { id } = body
+      return {
+        code: 0,
+        msg: '获取成功',
+        data: {
+          count: [5, 4, 3, 2, 1],
+          rate: 4.5,
+          data: db
+            .get('film')
+            .find({ id })
+            .cloneDeep()
+            .value()
+        }
+      }
+    }
   }
 ]

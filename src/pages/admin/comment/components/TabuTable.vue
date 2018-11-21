@@ -29,7 +29,7 @@ export default {
         {
           title: 'ID',
           field: 'id',
-          width: 80,
+          width: 200,
           responsive: 0,
           headerSort: false
         },

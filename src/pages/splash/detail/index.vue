@@ -1,14 +1,14 @@
 <template lang="pug">
   .page-wrap
-    .hero-wrap(v-if='data')
-      b-container.mt-4.mb-4
+    .hero-wrap
+      b-container.mt-4.mb-4(v-if='data')
         h3 {{ data.title }} 
-          small.text-muted ({{ data.info.alias }})
+          small.text-muted(v-if='data.info') ({{ data.info.alias }})
         b-row.mt-4
           b-col(cols='auto')
             img(width='160px', :src='"./cover/" + data.cover')
           b-col
-            .film-desc
+            .film-desc(v-if='data.info')
               span.text-muted 导演: 
               span {{ data.info.director }}
               br
@@ -56,54 +56,31 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import StarRate from 'vue-cute-rate'
 import CommentList from './components/CommentList'
 
 export default {
+  mounted() {
+    this.unset()
+    this.fetch(this.$route.query.id)
+  },
   data() {
     return {
       options: {
         rateLabel: ['五星', '四星', '三星', '二星', '一星']
-      },
-      rate: {
-        avg: 3.6,
-        count: 126,
-        rates: [50, 45, 21, 9, 1]
-      },
-      data: {
-        id: '5',
-        title: '荒岛余生',
-        subtitle: '四年没上班的社畜',
-        href: 'https://www.bilibili.com/bangumi/play/ss25865/',
-        cover: '3211c19bb4c136ae6459b94a89f7f3c6ae30116c.jpg@320w_428h.jpg',
-        info: {
-          director: '罗伯特·泽米吉斯',
-          scriptwriter: '小威廉·保尔斯',
-          zprotagonist: '汤姆·汉克斯 / 海伦·亨特 / 克里斯·诺斯 / 尼克·西塞',
-          type: '剧情 / 冒险',
-          production: '美国',
-          language: '英语 / 俄语',
-          release: '2000-12-22(美国)',
-          duration: '143分钟',
-          alias: '浩劫重生(台) / 劫后重生(港) / 荒岛男人'
-        }
       }
     }
   },
   computed: {
-    ...mapGetters(['filmTop']),
-    groupedFilmTop() {
-      return this.filmTop.reduce(
-        (x, item, index) => (
-          index % 5 ? x[x.length - 1].push(item) : x.push([item]), x
-        ),
-        []
-      )
-    },
+    ...mapGetters('splash/detail', ['mine', 'rate', 'data']),
+    ...mapGetters(['user', 'role']),
     id() {
       return this.$route.query.id
     }
+  },
+  methods: {
+    ...mapActions('splash/detail', ['unset', 'fetch'])
   },
   components: {
     StarRate,

@@ -21,7 +21,7 @@ export default {
     this.fetch()
   },
   computed: {
-    ...mapGetters('splash', ['list']),
+    ...mapGetters('splash/welcome', ['list']),
     groupedFilmTop() {
       return this.list.reduce(
         (x, item, index) => (
@@ -32,7 +32,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions('splash', ['fetch'])
+    ...mapActions('splash/welcome', ['fetch'])
   }
 }
 </script>
