@@ -29,6 +29,6 @@ export const deleteFilm = ids => {
   return request({
     method: 'post',
     url: '/film/deleteFilm',
-    data: qs.stringify({ list: ids })
+    data: qs.stringify({ list: ids }, { arrayFormat: 'repeat' })
   })
 }
