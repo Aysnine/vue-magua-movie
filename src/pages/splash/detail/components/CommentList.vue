@@ -2,7 +2,6 @@
   .comment-list-wrap
     h3.text-center.mt-5.mb-5 评论区
     .comment-list-body
-
       b-card.mt-3(v-if='!mine && user && role=="ROOT_MEMBER"', border-variant='success', header-class='card-head')
         b-row.pt-0(slot='header', align-v='center')
           b-col
