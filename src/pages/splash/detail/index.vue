@@ -6,7 +6,14 @@
           small.text-muted(v-if='data.info') ({{ data.info.alias }})
         b-row.mt-4
           b-col(cols='auto')
-            img(width='160px', :src='"./cover/" + data.cover')
+            .text-center
+              img(width='160px', :src='"./cover/" + data.cover')
+              template(v-if='data.href')
+                br
+                br
+                span.text-muted 播放链接: 
+                  //- b-link(:href='data.href', target='_blank') Bilibili
+                  b-link(:href='data.href', target='_blank') 点此观看
           b-col
             .film-desc(v-if='data.info')
               span.text-muted 导演: 
@@ -35,9 +42,6 @@
               br
               span.text-muted 又名: 
               span {{ data.info.alias }}
-              br
-              span.text-muted 播放链接: 
-                b-link(:href='data.href', target='_blank') Bilibili
           b-col(cols='auto')
             .film-rate
               span 麻瓜评分
